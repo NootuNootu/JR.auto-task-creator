@@ -6,7 +6,7 @@ import {
 import { getClient } from "azure-devops-extension-api";
 
 SDK.init().then(() => {
-	SDK.register("JoshRennie.auto-task-creator.generate-tasks-item-menu", () => ({
+	SDK.register(SDK.getContributionId(), () => ({
 		execute
 	}));
 });
