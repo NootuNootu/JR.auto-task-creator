@@ -6,27 +6,29 @@ import {
 import { getClient } from "azure-devops-extension-api";
 
 SDK.init().then(() => {
-	SDK.register(SDK.getContributionId(), () => ({
-		execute: async (context: Context) => {
-			const client = getClient(WorkItemTrackingRestClient, {
-				sessionId: context.tfsContext.sessionId,
-				rootPath: context.tfsContext.contextData.host.uri
-			});
-
-			const currentWorkItem = await client.getWorkItem(context.workItemId);
-
-			if (context.workItemTypeName === "Story") {
-				await createStoryTasks(client, context, currentWorkItem);
-				alert("Tasks Created");
-			} else if (context.workItemTypeName === "Bug") {
-				await createBugTasks(client, context, currentWorkItem);
-				alert("Tasks Created");
-			} else {
-				alert("Invalid Work Item Type");
-			}
-		}
+	SDK.register("JoshRennie.auto-task-creator.generate-tasks-item-menu", () => ({
+		execute
 	}));
 });
+
+async function execute(context: Context) {
+	const client = getClient(WorkItemTrackingRestClient, {
+		sessionId: context.tfsContext?.sessionId,
+		rootPath: context.tfsContext?.contextData?.host?.uri
+	});
+
+	const currentWorkItem = await client.getWorkItem(context.workItemId);
+
+	if (context.workItemTypeName === "Story") {
+		await createStoryTasks(client, context, currentWorkItem);
+		alert("Tasks Created");
+	} else if (context.workItemTypeName === "Bug") {
+		await createBugTasks(client, context, currentWorkItem);
+		alert("Tasks Created");
+	} else {
+		alert("Invalid Work Item Type");
+	}
+}
 
 const createStoryTasks = async (
 	client: WorkItemTrackingRestClient,

@@ -2,7 +2,7 @@
 	"manifestVersion": 1,
 	"id": "auto-task-creator",
 	"publisher": "JoshRennie",
-	"version": "0.0.26",
+	"version": "1.0.10",
 	"name": "Auto Task Creator",
 	"description": "Automatically generate tasks for azure dev ops",
 	"public": false,
@@ -15,7 +15,7 @@
 	],
 	"contributions": [
 		{
-			"id": "generateTasks",
+			"id": "generate-tasks-item-menu",
 			"type": "ms.vss-web.action",
 			"targets": ["ms.vss-work-web.work-item-toolbar-menu"],
 			"properties": {
