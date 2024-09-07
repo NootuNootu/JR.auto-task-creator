@@ -1,0 +1,35 @@
+{
+	"manifestVersion": 1,
+	"id": "auto-task-creator",
+	"publisher": "JoshRennie",
+	"version": "0.0.26",
+	"name": "Auto Task Creator",
+	"description": "Automatically generate tasks for azure dev ops",
+	"public": false,
+	"categories": ["Azure Boards"],
+	"scopes": ["vso.work_write"],
+	"targets": [
+		{
+			"id": "Microsoft.VisualStudio.Services"
+		}
+	],
+	"contributions": [
+		{
+			"id": "generateTasks",
+			"type": "ms.vss-web.action",
+			"targets": ["ms.vss-work-web.work-item-toolbar-menu"],
+			"properties": {
+				"text": "Generate Tasks",
+				"title": "Generate Tasks",
+				"groupId": "actions",
+				"uri": "dist/index.html"
+			}
+		}
+	],
+	"files": [
+		{
+			"path": "dist",
+			"addressable": true
+		}
+	]
+}

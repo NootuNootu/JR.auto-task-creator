@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strict": true,
+        "target": "es6",
+        "rootDir": "src/",
+        "outDir": "dist/",
+        "lib": [
+          "es5",
+          "es6",
+          "dom",
+          "es2015.promise"
+        ],
+        "types": [
+            "node"
+        ],
+        "esModuleInterop": true,
+    }
+}
