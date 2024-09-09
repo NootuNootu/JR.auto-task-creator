@@ -19,7 +19,7 @@ async function execute(context: Context) {
 
 	const currentWorkItem = await client.getWorkItem(context.workItemId);
 
-	if (context.workItemTypeName === "Story") {
+	if (context.workItemTypeName === "User Story") {
 		await createStoryTasks(client, context, currentWorkItem);
 		alert("Tasks Created");
 	} else if (context.workItemTypeName === "Bug") {
